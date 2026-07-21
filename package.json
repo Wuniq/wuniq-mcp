@@ -1,6 +1,6 @@
 {
   "name": "@wuniq/mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wuniq MCP server. Requires the free Wuniq desktop app. A knowledge engine that keeps decisions, constraints and intent beside your project files, readable by any MCP-enabled AI.",
   "mcpName": "com.wuniq/wuniq",
   "bin": {
@@ -22,6 +22,13 @@
     "ai"
   ],
   "homepage": "https://www.wuniq.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wuniq/wuniq-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wuniq/wuniq-mcp/issues"
+  },
   "author": "Wuniq (https://www.wuniq.com)",
   "license": "MIT",
   "publishConfig": {

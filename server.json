@@ -3,14 +3,18 @@
   "name": "com.wuniq/wuniq",
   "title": "Wuniq KE (Knowledge Engine)",
   "description": "The structured memory layer your AI is missing. Requires the free Wuniq desktop app.",
-  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/Wuniq/wuniq-mcp",
+    "source": "github"
+  },
+  "version": "1.0.1",
   "websiteUrl": "https://www.wuniq.com",
   "packages": [
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@wuniq/mcp",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "transport": { "type": "stdio" },
       "runtimeHint": "npx"
     }
