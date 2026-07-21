@@ -1,0 +1,25 @@
+node_modules/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Wuniq project context is intentionally not part of this public repository
+*.wuniq
+
+# Package and build artifacts
+*.tgz
+*.tar.gz
+dist/
+coverage/
+*.log
+npm-debug.log*
+
+# Operating-system files
+.DS_Store
+Thumbs.db
