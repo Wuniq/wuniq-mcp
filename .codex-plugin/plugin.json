@@ -1,0 +1,43 @@
+{
+  "name": "wuniq-mcp",
+  "version": "1.0.0",
+  "description": "Connect Codex to the local-first Wuniq Knowledge Engine for persistent, structured project context.",
+  "author": {
+    "name": "Wuniq",
+    "email": "support@wuniq.com",
+    "url": "https://www.wuniq.com/"
+  },
+  "homepage": "https://www.wuniq.com/",
+  "repository": "https://github.com/Wuniq/wuniq-mcp",
+  "license": "MIT",
+  "keywords": [
+    "knowledge-engine",
+    "memory",
+    "mcp",
+    "local-first",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Wuniq",
+    "shortDescription": "Persistent project knowledge for Codex",
+    "longDescription": "Connect Codex to Wuniq's local-first Knowledge Engine. Read and maintain decisions, constraints, intent, and reasoning stored beside project files. Requires the free Wuniq desktop app for Windows or Linux.",
+    "developerName": "Wuniq",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://www.wuniq.com/",
+    "privacyPolicyURL": "https://www.wuniq.com/privacy.html",
+    "termsOfServiceURL": "https://www.wuniq.com/terms.html",
+    "defaultPrompt": [
+      "Open the Wuniq projects visible to you and summarize the context relevant to this task.",
+      "Read this module's Wuniq context before changing it and preserve the confirmed decisions.",
+      "Record this decision and its rationale in Wuniq, then synchronize after the change."
+    ],
+    "composerIcon": "./assets/wuniq-icon.png",
+    "logo": "./assets/wuniq-icon.png"
+  }
+}

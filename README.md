@@ -64,6 +64,20 @@ claude plugin validate --strict .
 claude --plugin-dir .
 ```
 
+## Codex plugin
+
+The same repository is also a Codex plugin. Its `.codex-plugin/plugin.json` reuses the same skill and `.mcp.json`; it starts `@wuniq/mcp@1.0.1` locally and does not create a hosted service or upload project data.
+
+Add the public Wuniq marketplace from Codex:
+
+```text
+codex plugin marketplace add Wuniq/wuniq-mcp --ref main
+```
+
+Then open the **Plugins** directory in the ChatGPT desktop app, select the **Wuniq** marketplace, and install **Wuniq**. Start a new Codex session after installation so the skill and MCP server are loaded.
+
+ChatGPT on the web cannot run this local `stdio` MCP server. Wuniq's full integration is therefore for local Codex clients: the ChatGPT desktop app, Codex CLI, and the Codex IDE extension.
+
 ## Example prompts
 
 - "Open the Wuniq projects visible to you and summarize the important context for this task."
@@ -72,8 +86,8 @@ claude --plugin-dir .
 
 ## Troubleshooting
 
-- **The Wuniq app is missing:** install it only from the official links at [wuniq.com](https://www.wuniq.com), then start a new Claude session.
-- **`open list` returns no projects:** open the intended project in the Wuniq desktop interface and ask Claude to try again.
+- **The Wuniq app is missing:** install it only from the official links at [wuniq.com](https://www.wuniq.com), then start a new Claude or Codex session.
+- **`open list` returns no projects:** open the intended project in the Wuniq desktop interface and ask your AI client to try again.
 - **The launcher cannot start:** confirm that Node.js and `npx` are available, or use the direct per-client setup documented at [wuniq.com](https://www.wuniq.com).
 
 ## How the launcher works
