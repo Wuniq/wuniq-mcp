@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "wuniq",
+  "displayName": "Wuniq",
+  "version": "1.0.0",
+  "description": "A local-first knowledge engine for AI-assisted software work. Requires the free Wuniq desktop app, currently available for Windows and Linux.",
+  "author": {
+    "name": "Wuniq",
+    "email": "support@wuniq.com",
+    "url": "https://www.wuniq.com/"
+  },
+  "homepage": "https://www.wuniq.com/",
+  "repository": "https://github.com/Wuniq/wuniq-mcp",
+  "license": "MIT",
+  "keywords": [
+    "knowledge-engine",
+    "memory",
+    "mcp",
+    "local-first",
+    "developer-tools"
+  ]
+}

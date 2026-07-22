@@ -4,7 +4,7 @@
   <img src="assets/wuniq-icon.png" alt="Wuniq" width="128" height="128">
 </p>
 
-> **Wuniq is free. This MCP package requires the Wuniq desktop app. Download it only through the official, trusted links at [wuniq.com](https://www.wuniq.com). Do not use third-party mirrors.**
+> **Wuniq is free. This MCP package requires the Wuniq desktop app, currently available for Windows and Linux. Download it only through the official, trusted links at [wuniq.com](https://www.wuniq.com). Do not use third-party mirrors.**
 
 Wuniq is a knowledge engine for AI-assisted work. It stores decisions, constraints, intent, and human reasoning in `.wuniq` files beside your project files, so any MCP-compatible AI can read and maintain the knowledge exactly where the work lives.
 
@@ -12,7 +12,7 @@ Wuniq is local-first: no account, no cloud storage, and no telemetry.
 
 ## What this repository contains
 
-This repository contains the small, open-source MCP launcher published as [`@wuniq/mcp`](https://www.npmjs.com/package/@wuniq/mcp), plus the manifest submitted to the [official MCP Registry](https://registry.modelcontextprotocol.io/?search=com.wuniq).
+This repository contains the small, open-source MCP launcher published as [`@wuniq/mcp`](https://www.npmjs.com/package/@wuniq/mcp), the manifest submitted to the [official MCP Registry](https://registry.modelcontextprotocol.io/?search=com.wuniq), and a Claude plugin wrapper that starts the same launcher.
 
 The launcher has zero dependencies. It connects your MCP client to the MCP server included with the installed Wuniq desktop app:
 
@@ -51,6 +51,31 @@ Already have the app installed? You can also point your MCP configuration direct
 
 Per-IDE instructions and current platform availability are maintained at [wuniq.com](https://www.wuniq.com).
 
+## Claude plugin
+
+The repository root is also a Claude plugin. It does not contain a second MCP server: `.mcp.json` starts the published `@wuniq/mcp@1.0.1` launcher, which connects Claude to the MCP server inside the installed Wuniq app.
+
+The plugin includes one compact skill that teaches Claude the safe Wuniq workflow: discover visible projects first, read their context before working, preserve confirmed decisions, and synchronize after changes. It does not pre-approve tools or elevate permissions.
+
+Before marketplace submission, the plugin can be checked and loaded locally with Claude Code:
+
+```text
+claude plugin validate --strict .
+claude --plugin-dir .
+```
+
+## Example prompts
+
+- "Open the Wuniq projects visible to you and summarize the important context for this task."
+- "Before changing the authentication module, read its Wuniq context and preserve the constraints already decided."
+- "Record the decision we just made, implement the change, and run Wuniq sync when you finish."
+
+## Troubleshooting
+
+- **The Wuniq app is missing:** install it only from the official links at [wuniq.com](https://www.wuniq.com), then start a new Claude session.
+- **`open list` returns no projects:** open the intended project in the Wuniq desktop interface and ask Claude to try again.
+- **The launcher cannot start:** confirm that Node.js and `npx` are available, or use the direct per-client setup documented at [wuniq.com](https://www.wuniq.com).
+
 ## How the launcher works
 
 The launcher passes the MCP client's standard input and output directly to the MCP server included with the installed app. If Wuniq is not installed, it exposes only a minimal MCP response explaining how to obtain the official app.
@@ -71,4 +96,4 @@ To report a security issue, use this repository's private vulnerability reportin
 
 ## License
 
-The MCP launcher in this repository is licensed under the [MIT License](LICENSE). The Wuniq desktop app and Knowledge Engine are separate software and are not covered by this repository's license.
+The MCP launcher and Claude plugin wrapper in this repository are licensed under the [MIT License](LICENSE). The Wuniq desktop app and Knowledge Engine are separate software and are not covered by this repository's license.
