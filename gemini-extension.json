@@ -1,0 +1,14 @@
+{
+  "name": "wuniq-mcp",
+  "version": "1.0.0",
+  "description": "Wuniq preserves decisions, constraints, and intent beside your project files so Gemini can maintain context across sessions. Requires the free Wuniq desktop app.",
+  "mcpServers": {
+    "wuniq": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@wuniq/mcp@1.0.1"
+      ]
+    }
+  }
+}

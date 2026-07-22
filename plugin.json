@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "wuniq-mcp",
+  "description": "Connect Antigravity to the local-first Wuniq Knowledge Engine and preserve decisions, constraints, and intent beside project files. Requires the free Wuniq desktop app."
+}

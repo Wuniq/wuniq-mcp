@@ -12,7 +12,7 @@ Wuniq is local-first: no account, no cloud storage, and no telemetry.
 
 ## What this repository contains
 
-This repository contains the small, open-source MCP launcher published as [`@wuniq/mcp`](https://www.npmjs.com/package/@wuniq/mcp), the manifest submitted to the [official MCP Registry](https://registry.modelcontextprotocol.io/?search=com.wuniq), and a Claude plugin wrapper that starts the same launcher.
+This repository contains the small, open-source MCP launcher published as [`@wuniq/mcp`](https://www.npmjs.com/package/@wuniq/mcp), the manifest submitted to the [official MCP Registry](https://registry.modelcontextprotocol.io/?search=com.wuniq), and thin wrappers for Claude, Codex, Antigravity, and Gemini CLI that all start the same launcher.
 
 The launcher has zero dependencies. It connects your MCP client to the MCP server included with the installed Wuniq desktop app:
 
@@ -78,6 +78,32 @@ Then open the **Plugins** directory in the ChatGPT desktop app, select the **Wun
 
 ChatGPT on the web cannot run this local `stdio` MCP server. Wuniq's full integration is therefore for local Codex clients: the ChatGPT desktop app, Codex CLI, and the Codex IDE extension.
 
+## Antigravity plugin
+
+The repository root is a native Antigravity plugin. Its `mcp_config.json` starts the published `@wuniq/mcp@1.0.1` launcher, while `skills/wuniq/SKILL.md` supplies the safe Wuniq workflow. It does not contain a second MCP server or upload project data.
+
+Install it in Antigravity CLI from the public repository:
+
+```text
+agy plugin install https://github.com/Wuniq/wuniq-mcp
+```
+
+In Antigravity 2.0, Wuniq can also be configured as a custom MCP server with the same `npx -y @wuniq/mcp@1.0.1` command while its MCP Store listing is under review.
+
+## Gemini CLI extension
+
+The repository root is also a Gemini CLI extension. Its `gemini-extension.json` starts the same published `@wuniq/mcp@1.0.1` launcher, while `skills/wuniq/SKILL.md` supplies the safe Wuniq workflow as an Agent Skill. It does not contain a second MCP server or upload project data.
+
+Install it directly from the public repository:
+
+```text
+gemini extensions install https://github.com/Wuniq/wuniq-mcp
+```
+
+Restart Gemini CLI after installation so the extension and its MCP tools are loaded.
+
+Google has transitioned personal, Pro, and Ultra users from Gemini CLI to Antigravity CLI. The Gemini CLI extension remains available for supported Enterprise, Google Cloud, and API-based environments.
+
 ## Example prompts
 
 - "Open the Wuniq projects visible to you and summarize the important context for this task."
@@ -86,7 +112,7 @@ ChatGPT on the web cannot run this local `stdio` MCP server. Wuniq's full integr
 
 ## Troubleshooting
 
-- **The Wuniq app is missing:** install it only from the official links at [wuniq.com](https://www.wuniq.com), then start a new Claude or Codex session.
+- **The Wuniq app is missing:** install it only from the official links at [wuniq.com](https://www.wuniq.com), then start a new Claude, Codex, Antigravity, or Gemini CLI session.
 - **`open list` returns no projects:** open the intended project in the Wuniq desktop interface and ask your AI client to try again.
 - **The launcher cannot start:** confirm that Node.js and `npx` are available, or use the direct per-client setup documented at [wuniq.com](https://www.wuniq.com).
 
@@ -110,4 +136,4 @@ To report a security issue, use this repository's private vulnerability reportin
 
 ## License
 
-The MCP launcher and Claude plugin wrapper in this repository are licensed under the [MIT License](LICENSE). The Wuniq desktop app and Knowledge Engine are separate software and are not covered by this repository's license.
+The MCP launcher and the Claude, Codex, Antigravity, and Gemini CLI wrappers in this repository are licensed under the [MIT License](LICENSE). The Wuniq desktop app and Knowledge Engine are separate software and are not covered by this repository's license.
