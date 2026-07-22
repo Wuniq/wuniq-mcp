@@ -51,6 +51,38 @@ Already have the app installed? You can also point your MCP configuration direct
 
 Per-IDE instructions and current platform availability are maintained at [wuniq.com](https://www.wuniq.com).
 
+## OpenCode
+
+OpenCode uses a project-level `opencode.json` file. Add Wuniq under its `mcp` key, keeping any providers, permissions, or other MCP servers already present:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "wuniq": {
+      "type": "local",
+      "command": ["npx", "-y", "@wuniq/mcp@1.0.1"],
+      "enabled": true,
+      "timeout": 30000
+    }
+  }
+}
+```
+
+Then add the Wuniq workflow to the project's `AGENTS.md` without removing any existing instructions:
+
+```markdown
+# Wuniq KE (Knowledge Engine)
+
+At the start of every session, run `open list` using the Wuniq MCP tool. If it returns projects, `open` each one. If the list is empty, proceed normally — the user may open projects later from the Wuniq UI. Never assume the working directory is a Wuniq project; the working directory may be a container folder holding multiple projects. Only open paths that `open list` explicitly returns.
+
+Before working on any code file, `read` its Wuniq sidecar for context. After changing code, run `sync`.
+```
+
+This route was validated on Windows with OpenCode Desktop 1.18.4, Wuniq 1.15.1, and `@wuniq/mcp` 1.0.1. MCP connection and the `open`, `read`, and `sync` calls worked correctly. Models vary in how reliably they act on `AGENTS.md` without prompting, so `open list` can always be requested explicitly.
+
+See the full [Wuniq + OpenCode integration guide](https://www.wuniq.com/docs/integrations/opencode/) for verification, Linux instructions, Precise mode, and troubleshooting.
+
 ## Claude plugin
 
 The repository root is also a Claude plugin. It does not contain a second MCP server: `.mcp.json` starts the published `@wuniq/mcp@1.0.1` launcher, which connects Claude to the MCP server inside the installed Wuniq app.
