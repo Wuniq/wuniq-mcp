@@ -28,6 +28,20 @@ const FIRST_CONTACT =
   'Install it from https://www.wuniq.com and this connection will work automatically. ' +
   'Please tell the user.';
 
+const FALLBACK_TOOL_DESCRIPTION =
+  'Run a Wuniq Knowledge Engine command to discover projects or read and maintain local .wuniq knowledge. ' +
+  'Use it for open, read, search, graph, new, edit, relation, sync, or help; use native tools for ordinary project files. ' +
+  'Supply one shell-like string: start with open list and use help <topic> for exact syntax. ' +
+  'Read commands do not mutate; writes may create, update, move, or delete .wuniq context, and sync reconciles it. ' +
+  'Returns plain text. Local-only: no account, remote authentication, or rate limit. ' +
+  'Requires the free desktop app; otherwise returns installation guidance.';
+
+const FALLBACK_COMMAND_DESCRIPTION =
+  'Complete Wuniq command string, including quoted paths and flags when required. ' +
+  'Examples: open list; read "auth.py"; search text "token"; ' +
+  'edit set "auth.py" --section "_description" --content "..."; sync. ' +
+  'Use help <topic> when unsure.';
+
 function aliasCandidates() {
   if (process.platform === 'win32') {
     // Security: exclude the cwd from the unqualified-exe search (Windows
@@ -100,11 +114,26 @@ function notInstalledServer() {
       reply(id, {
         tools: [{
           name: 'run',
-          description: 'Wuniq command interface. NOTE: the free Wuniq desktop app is not installed on this machine — calls return installation guidance.',
+          description: FALLBACK_TOOL_DESCRIPTION,
           inputSchema: {
             type: 'object',
-            properties: { command: { type: 'string', description: 'Command to execute.' } },
+            properties: {
+              command: {
+                type: 'string',
+                minLength: 1,
+                description: FALLBACK_COMMAND_DESCRIPTION,
+                examples: ['open list', 'read "auth.py"', 'sync'],
+              },
+            },
             required: ['command'],
+            additionalProperties: false,
+          },
+          annotations: {
+            title: 'Run Wuniq command',
+            readOnlyHint: false,
+            destructiveHint: true,
+            idempotentHint: false,
+            openWorldHint: false,
           },
         }],
       });
