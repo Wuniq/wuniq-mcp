@@ -1,6 +1,6 @@
 {
   "name": "@wuniq/mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wuniq MCP server. Requires the free Wuniq desktop app. A knowledge engine that keeps decisions, constraints and intent beside your project files, readable by any MCP-enabled AI.",
   "mcpName": "com.wuniq/wuniq",
   "bin": {

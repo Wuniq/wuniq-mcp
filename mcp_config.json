@@ -4,7 +4,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@wuniq/mcp@1.0.1"
+        "@wuniq/mcp"
       ]
     }
   }

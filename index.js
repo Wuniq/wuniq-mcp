@@ -114,6 +114,8 @@ function notInstalledServer() {
       reply(id, {});
     } else if (method === 'resources/list') {
       reply(id, { resources: [] });
+    } else if (method === 'resources/templates/list') {
+      reply(id, { resourceTemplates: [] });
     } else if (method === 'prompts/list') {
       reply(id, { prompts: [] });
     } else if (!isNotification) {

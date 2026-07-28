@@ -61,7 +61,7 @@ OpenCode uses a project-level `opencode.json` file. Add Wuniq under its `mcp` ke
   "mcp": {
     "wuniq": {
       "type": "local",
-      "command": ["npx", "-y", "@wuniq/mcp@1.0.1"],
+      "command": ["npx", "-y", "@wuniq/mcp"],
       "enabled": true,
       "timeout": 30000
     }
@@ -85,7 +85,7 @@ See the full [Wuniq + OpenCode integration guide](https://www.wuniq.com/docs/int
 
 ## Claude plugin
 
-The repository root is also a Claude plugin. It does not contain a second MCP server: `.mcp.json` starts the published `@wuniq/mcp@1.0.1` launcher, which connects Claude to the MCP server inside the installed Wuniq app.
+The repository root is also a Claude plugin. It does not contain a second MCP server: `.mcp.json` starts the published `@wuniq/mcp` launcher, which connects Claude to the MCP server inside the installed Wuniq app.
 
 The plugin includes one compact skill that teaches Claude the safe Wuniq workflow: discover visible projects first, read their context before working, preserve confirmed decisions, and synchronize after changes. It does not pre-approve tools or elevate permissions.
 
@@ -98,7 +98,7 @@ claude --plugin-dir .
 
 ## Codex plugin
 
-The same repository is also a Codex plugin. Its `.codex-plugin/plugin.json` reuses the same skill and `.mcp.json`; it starts `@wuniq/mcp@1.0.1` locally and does not create a hosted service or upload project data.
+The same repository is also a Codex plugin. Its `.codex-plugin/plugin.json` reuses the same skill and `.mcp.json`; it starts `@wuniq/mcp` locally and does not create a hosted service or upload project data.
 
 Add the public Wuniq marketplace from Codex:
 
@@ -112,7 +112,7 @@ ChatGPT on the web cannot run this local `stdio` MCP server. Wuniq's full integr
 
 ## Antigravity plugin
 
-The repository root is a native Antigravity plugin. Its `mcp_config.json` starts the published `@wuniq/mcp@1.0.1` launcher, while `skills/wuniq/SKILL.md` supplies the safe Wuniq workflow. It does not contain a second MCP server or upload project data.
+The repository root is a native Antigravity plugin. Its `mcp_config.json` starts the published `@wuniq/mcp` launcher, while `skills/wuniq/SKILL.md` supplies the safe Wuniq workflow. It does not contain a second MCP server or upload project data.
 
 Install it in Antigravity CLI from the public repository:
 
@@ -120,11 +120,11 @@ Install it in Antigravity CLI from the public repository:
 agy plugin install https://github.com/Wuniq/wuniq-mcp
 ```
 
-In Antigravity 2.0, Wuniq can also be configured as a custom MCP server with the same `npx -y @wuniq/mcp@1.0.1` command while its MCP Store listing is under review.
+In Antigravity 2.0, Wuniq can also be configured as a custom MCP server with the same `npx -y @wuniq/mcp` command while its MCP Store listing is under review.
 
 ## Gemini CLI extension
 
-The repository root is also a Gemini CLI extension. Its `gemini-extension.json` starts the same published `@wuniq/mcp@1.0.1` launcher, while `skills/wuniq/SKILL.md` supplies the safe Wuniq workflow as an Agent Skill. It does not contain a second MCP server or upload project data.
+The repository root is also a Gemini CLI extension. Its `gemini-extension.json` starts the same published `@wuniq/mcp` launcher, while `skills/wuniq/SKILL.md` supplies the safe Wuniq workflow as an Agent Skill. It does not contain a second MCP server or upload project data.
 
 Install it directly from the public repository:
 
